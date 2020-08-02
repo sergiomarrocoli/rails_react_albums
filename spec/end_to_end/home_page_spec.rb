@@ -14,10 +14,8 @@ RSpec.describe 'Home page', js: true, type: :system do
     end
 
     it 'navigates to show album page' do
-      expect_any_instance_of(AlbumsService).to receive(:albums_hash_array).twice
-        .and_return(expected_array)
       visit root_path
-      click_link('View Album')
+      first('.card').click_link('View Album')
     end
   end
 end
