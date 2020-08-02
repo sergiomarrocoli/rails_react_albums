@@ -6,10 +6,10 @@ class Album extends React.Component {
   constructor() {
     super();
 
-    var exampleItems = [];
+    var photos = [];
 
     this.state = {
-        exampleItems: exampleItems,
+        photos: photos,
         pageOfItems: []
     };
 
@@ -32,7 +32,7 @@ class Album extends React.Component {
         }
         throw new Error("Network response was not ok.");
       })
-      .then(response => this.setState({ exampleItems: response }))
+      .then(response => this.setState({ photos: response }))
       .catch(() => this.props.history.push("/"));
   }
     
@@ -68,7 +68,7 @@ class Album extends React.Component {
               { myDivs }
             </div>
             <div className="text-center">
-              <Pagination items={this.state.exampleItems} onChangePage={this.onChangePage} />
+              <Pagination items={this.state.photos} onChangePage={this.onChangePage} />
             </div>
           </main>
         </div>
