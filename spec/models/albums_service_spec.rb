@@ -4,18 +4,6 @@ include Fixtures::ApiResponses
 
 describe AlbumsService, type: :model do
 
-  let(:expected_array) {
-    [
-      {
-        "userId"=>1,
-        "id"=>1,
-        "title"=>"quidem molestiae enim",
-        "username"=>"Leanne Graham",
-        "thumbnail_url"=>"https://via.placeholder.com/600/92c952"
-      }
-    ]
-  }
-
   context 'albums_hash_array' do
     it 'assembles an array of hashes from API responses' do
       expect(ApiService).to receive(:get).with('/albums').and_return(albums_response)

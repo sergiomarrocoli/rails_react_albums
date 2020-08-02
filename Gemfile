@@ -34,6 +34,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.1'
   gem 'dotenv', '~> 2.1', '>= 2.1.1'
+  gem 'capybara'
+  gem 'webdrivers'
+  gem 'selenium-webdriver'
 end
 
 group :development do

@@ -49,5 +49,17 @@ module Fixtures
         }
       ]
     end
+
+    def expected_array
+      [
+        {
+          "userId"=>1,
+          "id"=>1,
+          "title"=>"quidem molestiae enim",
+          "username"=>"Leanne Graham",
+          "thumbnail_url"=>"https://via.placeholder.com/150/92c952"
+        }
+      ]
+    end
   end
 end
