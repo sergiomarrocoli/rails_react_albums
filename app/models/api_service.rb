@@ -3,11 +3,15 @@ class ApiService
   base_uri 'https://jsonplaceholder.typicode.com'
 
   def photos(album_id)
-    self.class.get("/albums/#{album_id}/photos")
+    Rails.cache.fetch("photos/#{album_id}", expires_in: 30.minutes) do
+      self.class.get("/albums/#{album_id}/photos").as_json
+    end
   end
 
   def user(user_id)
-    self.class.get("/users/#{user_id}")
+    Rails.cache.fetch("users/#{user_id}", expires_in: 1.hour) do
+      self.class.get("/users/#{user_id}").as_json
+    end
   end
 
   def all_albums

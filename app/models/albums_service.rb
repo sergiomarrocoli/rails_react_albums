@@ -5,10 +5,12 @@ class AlbumsService
   end
 
   def albums_hash_array(user_id = nil)
-    all_albums(user_id).map do |album|
-      user = @api_service.all_users.find {|user| user['id'] == album['userId'] }
-      thumbnail = @api_service.all_photos.find {|photo| photo['albumId'] == album['id'] }
-      album.merge("username" => user['name'], "thumbnail_url" => thumbnail['url'])
+    Rails.cache.fetch("ulbums/user/#{user_id}", expires_in: 10.minutes) do
+      all_albums(user_id).map do |album|
+        user = @api_service.all_users.find {|user| user['id'] == album['userId'] }
+        thumbnail = @api_service.all_photos.find {|photo| photo['albumId'] == album['id'] }
+        album.merge("username" => user['name'], "thumbnail_url" => thumbnail['url'])
+      end
     end
   end
 
