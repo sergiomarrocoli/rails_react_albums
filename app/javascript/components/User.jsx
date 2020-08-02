@@ -29,8 +29,6 @@ class User extends React.Component {
 
   render() {
     const { user } = this.state;
-    const lat = user.lat;
-    const lng = user.lng;
 
     return (
       <>

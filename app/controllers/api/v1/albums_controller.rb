@@ -1,6 +1,6 @@
 class Api::V1::AlbumsController < ApplicationController
   def index
-    render json: AlbumsService.new.albums_hash_array
+    render json: AlbumsService.new.albums_hash_array(params[:user_id])
   end
 
   def show
