@@ -38,7 +38,7 @@ export class SimpleMap extends Component {
   }
  
   render() {
-    const zoom = 11;
+    const zoom = 0;
     var map;
     if (this.state.center.lat === ""){
       map = (

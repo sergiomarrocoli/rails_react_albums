@@ -45,7 +45,7 @@ class Album extends React.Component {
     const userId = this.props.location.search.split("=")[1];
     var myDivs = this.state.pageOfItems.map((album, index) => (
       <div key={index} className="col-md-6 col-lg-3 d-flex align-items-stretch">
-        <div className="card mb-4">
+        <div className="card mb-4 card-width">
           <img
             src={album.url}
             className="card-img-top"

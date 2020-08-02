@@ -38,7 +38,7 @@ class Albums extends React.Component {
     render() {
       var myDivs = this.state.pageOfItems.map((album, index) => (
         <div key={index} className="col-md-6 col-lg-3 d-flex align-items-stretch">
-          <div className="card mb-4"> 
+          <div className="card mb-4 card-width"> 
             <img
               src={album.thumbnail_url}
               className="card-img-top"

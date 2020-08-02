@@ -9,7 +9,7 @@ class AlbumsService
       all_albums(user_id).map do |album|
         user = @api_service.all_users.find {|user| user['id'] == album['userId'] }
         thumbnail = @api_service.all_photos.find {|photo| photo['albumId'] == album['id'] }
-        album.merge("username" => user['name'], "thumbnail_url" => thumbnail['url'])
+        album.merge("username" => user['name'], "thumbnail_url" => thumbnail['thumbnailUrl'])
       end
     end
   end
