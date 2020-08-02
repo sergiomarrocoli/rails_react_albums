@@ -1,6 +1,7 @@
 import React from "react";
 import { HomeLink } from './HomeLink.jsx';
 import { AlbumList } from './AlbumList.jsx';
+import { SimpleMap } from './SimpleMap.jsx';
 
 class User extends React.Component {
   constructor(props) {
@@ -63,6 +64,7 @@ class User extends React.Component {
                 <AlbumList userId={this.props.match.params.id}/>
               </div>
               <div className="col-6">
+                <SimpleMap userId={this.props.match.params.id}/>
               </div>
             </div>
           </main>
