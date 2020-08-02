@@ -16,9 +16,17 @@ describe ApiService, type: :model do
       end
     end
 
-    it 'makes a call to the users/ endpoint' do
-      expect(ApiService).to receive(:get).with('/users').once
-      ApiService.new.all_users 
+    context "users" do
+      it 'makes a call to the users/ endpoint' do
+        expect(ApiService).to receive(:get).with('/users').once
+        ApiService.new.all_users 
+      end
+
+      it 'makes a call to the users/user_id endpoint' do
+        user_id = 1
+        expect(ApiService).to receive(:get).with("/users/#{user_id}").once
+        ApiService.new.user(user_id) 
+      end
     end
 
     it 'makes a call to the photos/ endpoint' do

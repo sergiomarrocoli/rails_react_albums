@@ -6,6 +6,10 @@ class ApiService
     self.class.get("/albums/#{album_id}/photos")
   end
 
+  def user(user_id)
+    self.class.get("/users/#{user_id}")
+  end
+
   def all_albums
     @_albums ||= self.class.get('/albums')
   end
