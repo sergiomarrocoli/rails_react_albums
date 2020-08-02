@@ -1,5 +1,6 @@
 import React from "react";
 import { HomeLink } from './HomeLink.jsx';
+import { AlbumList } from './AlbumList.jsx';
 
 class User extends React.Component {
   constructor(props) {
@@ -55,7 +56,17 @@ class User extends React.Component {
             </div>
           </div>
         </section>
-
+        <div className="py-5">
+          <main className="container">
+            <div className="row">
+              <div className="col-6">
+                <AlbumList userId={this.props.match.params.id}/>
+              </div>
+              <div className="col-6">
+              </div>
+            </div>
+          </main>
+        </div>
       </>
     );
   }
