@@ -8,8 +8,8 @@ RSpec.describe 'Home page', js: true, type: :system do
   let(:user) { users_response.first }
   let(:photo) { photos_response.first }
 
-  context 'index page' do
-    it 'shows the right content' do
+  context 'shows the right content' do
+    it 'displays the home page' do
       visit root_path
 
       expect(page).to have_content('Photo Albums')
@@ -62,5 +62,21 @@ RSpec.describe 'Home page', js: true, type: :system do
 
       expect(page).to have_css '.map'
     end
+  end
+
+  context 'home links' do
+    it 'follows from album page' do
+      visit root_path
+      first('.card').click_link('View Album')
+      click_link('Home')
+      expect(page).to have_current_path('/')
+    end
+
+    it 'follows from user page' do
+      visit root_path
+      first('.card').click_link(user['name'])
+      click_link('Home')
+      expect(page).to have_current_path('/')
+    end 
   end
 end
